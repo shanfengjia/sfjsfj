@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陶艺 - 千年匠心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body {
+            min-height: 150vh; /* 内容高度超过屏幕，允许上下滑动 */
+            padding-bottom: 50px;
+        }
+
+        /* 背景图：自适应屏幕且固定 */
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("../img/bg_home_bg.jpg") center/cover no-repeat; /* 路径适配pages文件夹 */
+            z-index: -1;
+        }
+
+        /* 顶部导航 */
+        .header {
+            padding: 30px 50px;
+            text-align: center;
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 50px;
+            top: 30px;
+            background: #8B4513;
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .page-title {
+            font-size: 32px;
+            color: #333;
+            text-shadow: 1px 1px 3px #fff;
+        }
+
+        /* 内容区（可滚动） */
+        .content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .ceramic-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 100px; /* 增加底部间距，确保可滚动 */
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 22px;
+            color: #8B4513;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card-item {
+            margin: 10px 0;
+            color: #333;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* 增加内容高度，确保可滚动 */
+        .extra-content {
+            text-align: center;
+            color: #333;
+            margin-top: 60px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+    
+    <!-- 返回首页按钮（正确跳转路径） -->
+    <div class="header">
+        <button class="back-btn" onclick="location.href='../new_file.html'">返回首页</button>
+        <h1 class="page-title">陶艺工艺</h1>
+    </div>
+
+    <div class="content">
+        <div class="ceramic-cards">
+            <div class="card">
+                <h3 class="card-title">陶艺文化</h3>
+                <div class="card-items">
+                    <div class="card-item">历史起源与发展</div>
+                    <div class="card-item">名窑特色与传承</div>
+                    <div class="card-item">地域陶艺风格差异</div>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">制作技艺</h3>
+                <div class="card-items">
+                    <div class="card-item">拉坯与塑形基础</div>
+                    <div class="card-item">釉料调配与烧制</div>
+                    <div class="card-item">装饰技法与工具</div>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">经典作品</h3>
+                <div class="card-items">
+                    <div class="card-item">传统器皿鉴赏</div>
+                    <div class="card-item">现代陶艺创新</div>
+                    <div class="card-item">大师代表作品</div>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title">互动体验</h3>
+                <div class="card-items">
+                    <div class="card-item">虚拟拉坯模拟</div>
+                    <div class="card-item">工艺知识问答</div>
+                    <div class="card-item">DIY陶艺教程</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 增加额外内容，确保页面可上下滑动 -->
+        <div class="extra-content">
+            <h3>陶艺工艺的传承与创新</h3>
+            <p>陶艺是中国传统文化的重要组成部分，从新石器时代的彩陶到唐宋名窑的鼎盛，</p>
+            <p>再到现代陶艺的多元发展，承载着中华民族的智慧与审美。</p>
+            <p>如今，传统工艺与现代设计结合，让陶艺在当代焕发新的生命力。</p>
+        </div>
+    </div>
+</body>
+</html>
