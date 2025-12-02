@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>千年匠心守艺脉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body {
+            min-height: 120vh; /* 确保页面高度超过屏幕，允许上下滑动 */
+            padding-bottom: 50px; /* 底部留白，避免内容贴边 */
+        }
+
+        /* 背景图：自适应屏幕且固定显示（不随滚动重复） */
+        .home-bg {
+            position: fixed; /* 背景固定，内容滚动时背景不动 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("img/bg_home_bg.jpg") center/cover no-repeat; /* cover确保自适应屏幕 */
+            z-index: -1;
+        }
+
+        /* 主标题 */
+        .title {
+            text-align: center;
+            font-size: 42px;
+            color: #333;
+            margin: 80px 0 60px;
+            text-shadow: 1px 1px 3px #fff;
+        }
+
+        /* 中间大按钮 */
+        .start-btn {
+            width: 280px;
+            height: 70px;
+            line-height: 70px;
+            margin: 0 auto 80px;
+            text-align: center;
+            background: #8B4513;
+            color: #fff;
+            font-size: 24px;
+            border-radius: 35px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .start-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* 图标网格容器（2×2布局） */
+        .craft-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            width: 600px;
+            margin: 0 auto 100px; /* 增加底部间距，确保可滚动 */
+        }
+
+        /* 圆形图标容器 */
+        .craft-item {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .craft-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* 图标文字（居中于圆形内） */
+        .craft-item p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #333;
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="home-bg"></div>
+    <div class="title">千年匠心守艺脉</div>
+    <div class="start-btn" onclick="location.href='pages/album.html'">开始寻踪</div>
+    
+    <!-- 2×2网格排列的工艺图标 -->
+    <div class="craft-grid">
+        <div class="craft-item" onclick="location.href='pages/papercut.html'">
+            <p>剪纸</p>
+        </div>
+        <div class="craft-item" onclick="location.href='pages/ceramic.html'"> <!-- 跳转陶艺页面 -->
+            <p>陶艺</p>
+        </div>
+        <div class="craft-item" onclick="location.href='pages/woodcarving.html'">
+            <p>木雕</p>
+        </div>
+        <div class="craft-item" onclick="location.href='pages/embroidery.html'">
+            <p>刺绣</p>
+        </div>
+    </div>
+</body>
+</html>
