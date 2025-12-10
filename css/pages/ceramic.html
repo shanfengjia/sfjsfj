@@ -24,8 +24,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("../img/bg_home_bg.jpg") center/cover no-repeat; /* 路径适配pages文件夹 */
+            background: #f5e9d8 url("../img/bg_home_bg.jpg") center/cover no-repeat; /* 增加备用色，路径适配pages文件夹 */
             z-index: -1;
+            opacity: 0;
+            animation: bgFadeIn 1s ease-in-out forwards;
+        }
+        @keyframes bgFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* 顶部导航 */
@@ -34,6 +40,7 @@
             text-align: center;
         }
 
+        /* 核心修改：返回首页按钮跳转至根目录index.html */
         .back-btn {
             position: absolute;
             left: 50px;
@@ -45,10 +52,11 @@
             border-radius: 20px;
             cursor: pointer;
             font-size: 16px;
-            transition: transform 0.3s;
+            transition: transform 0.3s, background 0.3s;
         }
         .back-btn:hover {
             transform: scale(1.05);
+            background: #a0522d;
         }
 
         .page-title {
@@ -76,10 +84,16 @@
             border-radius: 15px;
             padding: 30px;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        .card:active {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .card-title {
@@ -103,14 +117,62 @@
             margin-top: 60px;
             line-height: 1.8;
         }
+
+        /* 回到顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #8B4513;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s, background 0.3s;
+            z-index: 99;
+        }
+        .back-to-top:hover {
+            transform: scale(1.1);
+            background: #a0522d;
+        }
+        .back-to-top.show {
+            display: flex;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .ceramic-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .header {
+                padding: 30px 20px;
+            }
+            .back-btn {
+                left: 20px;
+                padding: 6px 15px;
+                font-size: 14px;
+            }
+            .page-title {
+                font-size: 26px;
+            }
+            .card {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="bg"></div>
     
-    <!-- 返回首页按钮（正确跳转路径） -->
+    <!-- 核心修改：返回首页按钮跳转至根目录的首页（../index.html） -->
     <div class="header">
-        <button class="back-btn" onclick="location.href='../new_file.html'">返回首页</button>
+        <button class="back-btn" onclick="location.href='../index.html'" aria-label="返回非遗手工艺首页">返回首页</button>
         <h1 class="page-title">陶艺工艺</h1>
     </div>
 
@@ -158,5 +220,20 @@
             <p>如今，传统工艺与现代设计结合，让陶艺在当代焕发新的生命力。</p>
         </div>
     </div>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="回到顶部">↑</button>
+
+    <script>
+        // 回到顶部按钮逻辑
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>

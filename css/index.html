@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>千年匠心守艺脉</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body {
+            min-height: 120vh;
+            padding-bottom: 50px;
+        }
+
+        /* 背景图优化 */
+        .home-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f5e9d8 url("img/bg_home_bg.jpg") center/cover no-repeat;
+            z-index: -1;
+            opacity: 0;
+            animation: bgFadeIn 1s ease-in-out forwards;
+        }
+        @keyframes bgFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* 主标题 */
+        .title {
+            text-align: center;
+            font-size: 42px;
+            color: #333;
+            margin: 80px 0 60px;
+            text-shadow: 1px 1px 3px #fff;
+        }
+
+        /* 开始按钮 */
+        .start-btn {
+            width: 280px;
+            height: 70px;
+            line-height: 70px;
+            margin: 0 auto 80px;
+            text-align: center;
+            background: #8B4513;
+            color: #fff;
+            font-size: 24px;
+            border-radius: 35px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            box-shadow: 0 3px 8px rgba(139, 69, 19, 0.2);
+        }
+        .start-btn:hover {
+            transform: scale(1.05);
+            background: #a0522d;
+            box-shadow: 0 5px 12px rgba(139, 69, 19, 0.3);
+        }
+        .start-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 5px rgba(139, 69, 19, 0.2);
+        }
+
+        /* 工艺网格 */
+        .craft-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            width: 600px;
+            margin: 0 auto 100px;
+        }
+
+        /* 工艺入口 */
+        .craft-item {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .craft-item:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        .craft-item:active {
+            transform: scale(0.98);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        /* 工艺图标 */
+        .craft-item i {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            color: #8B4513;
+        }
+        /* 工艺文字 */
+        .craft-item p {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #333;
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* 回到顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            background: #8B4513;
+            color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s;
+            box-shadow: 0 3px 8px rgba(139, 69, 19, 0.2);
+            z-index: 99;
+        }
+        .back-to-top:hover {
+            transform: scale(1.1);
+            background: #a0522d;
+        }
+        .back-to-top.show {
+            display: block;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 30px;
+                margin: 50px 0 40px;
+            }
+            .start-btn {
+                width: 220px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 20px;
+                margin-bottom: 60px;
+            }
+            .craft-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                width: 90%;
+                margin-bottom: 80px;
+            }
+            .craft-item {
+                width: 180px;
+                height: 180px;
+            }
+            .craft-item i {
+                font-size: 35px;
+            }
+            .craft-item p {
+                font-size: 22px;
+            }
+        }
+        @media (max-width: 480px) {
+            .title {
+                font-size: 24px;
+            }
+            .craft-item {
+                width: 150px;
+                height: 150px;
+            }
+            .craft-item i {
+                font-size: 30px;
+            }
+            .craft-item p {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="home-bg"></div>
+    <h1 class="title">千年匠心守艺脉</h1>
+    <div class="start-btn" onclick="location.href='pages/album.html'" aria-label="开始探索非遗手工艺">开始寻踪</div>
+    
+    <!-- 工艺入口网格 - 陶艺入口跳转路径确认 -->
+    <div class="craft-grid">
+        <div class="craft-item" onclick="location.href='pages/papercut.html'" aria-label="进入剪纸工艺详情页">
+            <i class="fas fa-scissors"></i>
+            <p>剪纸</p>
+        </div>
+        <!-- 核心修改：陶艺入口跳转至pages/ceramic.html -->
+        <div class="craft-item" onclick="location.href='pages/ceramic.html'" aria-label="进入陶艺工艺详情页">
+            <i class="fas fa-mug-hot"></i>
+            <p>陶艺</p>
+        </div>
+        <div class="craft-item" onclick="location.href='pages/woodcarving.html'" aria-label="进入木雕工艺详情页">
+            <i class="fas fa-tree"></i>
+            <p>木雕</p>
+        </div>
+        <div class="craft-item" onclick="location.href='pages/embroidery.html'" aria-label="进入刺绣工艺详情页">
+            <i class="fas fa-thread"></i>
+            <p>刺绣</p>
+        </div>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <div class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="回到页面顶部">↑</div>
+
+    <script>
+        // 回到顶部按钮逻辑
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

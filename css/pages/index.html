@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>千年匠心守艺脉</title>
+    <!-- 引入字体图标库（用于工艺小图标） -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body {
+            min-height: 120vh;
+            padding-bottom: 50px;
+            /* 彻底清空body背景色，避免任何默认颜色干扰 */
+            background: transparent !important;
+        }
+
+        /* 纯背景图配置：绝对确保无备用色，仅加载图片 */
+        .home-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 仅保留图片路径，无任何备用色 */
+            background: url("img/bg_home_bg.jpg") center/cover no-repeat !important;
+            z-index: -9999; /* 提升层级，确保覆盖所有默认背景 */
+            opacity: 1; /* 关闭动画，避免加载延迟误以为是棕色 */
+            /* 强制清空所有背景相关样式 */
+            background-color: transparent !important;
+            background-blend-mode: normal !important;
+        }
+
+        /* 主标题 */
+        .title {
+            text-align: center;
+            font-size: 42px;
+            color: #333;
+            margin: 80px 0 60px;
+            text-shadow: 2px 2px 5px #fff;
+            font-weight: bold;
+        }
+
+        /* 中间大按钮 */
+        .start-btn {
+            width: 280px;
+            height: 70px;
+            line-height: 70px;
+            margin: 0 auto 80px;
+            text-align: center;
+            background: #8B4513;
+            color: #fff;
+            font-size: 24px;
+            border-radius: 35px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
+        }
+        .start-btn:hover {
+            transform: scale(1.05);
+            background: #a0522d;
+        }
+
+        /* 图标网格容器 */
+        .craft-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            width: 600px;
+            margin: 0 auto 100px;
+        }
+
+        /* 圆形图标容器（加图标布局） */
+        .craft-item {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .craft-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background: rgba(255,255,255,0.95);
+        }
+
+        /* 工艺小图标样式（居中在上半部分） */
+        .craft-item .icon {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: #8B4513; /* 图标颜色和按钮一致，贴合主题 */
+        }
+
+        /* 工艺文字（居中在下半部分） */
+        .craft-item p {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #333;
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+            text-shadow: 1px 1px 2px #eee;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 30px;
+                margin: 50px 0 40px;
+            }
+            .start-btn {
+                width: 220px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 20px;
+            }
+            .craft-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                width: 90%;
+            }
+            .craft-item {
+                width: 180px;
+                height: 180px;
+            }
+            .craft-item .icon {
+                font-size: 35px;
+            }
+            .craft-item p {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景图容器（仅加载图片，无任何备用色） -->
+    <div class="home-bg"></div>
+    
+    <div class="title">千年匠心守艺脉</div>
+    <div class="start-btn" onclick="location.href='pages/album.html'">开始寻踪</div>
+    
+    <!-- 工艺网格（每个项都加对应小图标，刺绣单独配置） -->
+    <div class="craft-grid">
+        <div class="craft-item" onclick="location.href='pages/papercut.html'">
+            <i class="fas fa-scissors icon"></i> <!-- 剪纸图标 -->
+            <p>剪纸</p>
+        </div>
+        <div class="craft-item" onclick="location.href='pages/ceramic.html'">
+            <i class="fas fa-mug-hot icon"></i> <!-- 陶艺图标 -->
+            <p>陶艺</p>
+        </div>
+        <div class="craft-item" onclick="location.href='pages/woodcarving.html'">
+            <i class="fas fa-tree icon"></i> <!-- 木雕图标 -->
+            <p>木雕</p>
+        </div>
+        <div class="craft-item" onclick="location.href='pages/embroidery.html'">
+            <i class="fas fa-thread icon"></i> <!-- 刺绣专属图标 -->
+            <p>刺绣</p>
+        </div>
+    </div>
+</body>
+</html>

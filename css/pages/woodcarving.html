@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>木雕 - 千年匠心</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ===== 通用 ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Microsoft YaHei,serif}
+body{min-height:100vh;background:url(../img/bg_home_bg.jpg) center/cover fixed}
+
+/* ===== 头部 ===== */
+header{display:flex;align-items:center;justify-content:center;padding:30px 20px;position:relative}
+.back{position:absolute;left:20px;background:#8B4513;color:#fff;border:none;padding:8px 18px;border-radius:20px;cursor:pointer}
+h1{font-size:32px;color:#333;text-shadow:0 0 4px #fff}
+
+/* ===== 图片轮播（3 张） ===== */
+.carousel{position:relative;width:90%;max-width:1000px;margin:20px auto;overflow:hidden}
+.pic-track{display:flex;transition:.5s}
+.card{width:280px;margin:0 15px;flex-shrink:0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.card:hover{transform:translateY(-5px) scale(1.02)}
+.card div{padding:8px;text-align:center;background:rgba(0,0,0,.5);color:#fff;font-size:14px;margin-top:-34px;position:relative}
+button.nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(139,69,19,.8);color:#fff;border:2px solid #fff;font-size:22px;cursor:pointer;z-index:2}
+button.nav:disabled{background:#ccc;cursor:not-allowed}
+.prev-pic{left:10px}
+.next-pic{right:10px}
+
+/* ===== 文字四板块轮换 ===== */
+.content-panel{position:relative;width:90%;max-width:800px;margin:40px auto}
+.panel-viewport{overflow:hidden;border-radius:15px;background:rgba(255,255,255,.9);box-shadow:0 4px 15px rgba(0,0,0,.15)}
+.panel-track{display:flex;transition:transform .5s}
+.panel-slide{flex:0 0 100%;padding:50px 30px;text-align:center}
+.panel-slide h3{color:#8B4513;font-size:26px;margin-bottom:25px;display:flex;align-items:center;justify-content:center;gap:10px}
+.panel-slide p{margin:12px 0;font-size:18px;color:#333}
+.panel-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(139,69,19,.8);color:#fff;border:2px solid #fff;font-size:24px;cursor:pointer;z-index:2}
+.panel-nav:hover{background:#8B4513}
+.prev-panel{left:10px}
+.next-panel{right:10px}
+.panel-nav:disabled{background:#ccc;cursor:not-allowed}
+
+/* ===== 底部 ===== */
+footer{width:90%;max-width:800px;margin:0 auto 40px;background:rgba(255,255,255,.85);padding:25px;border-radius:10px;text-align:center;line-height:1.8}
+@media(max-width:768px){
+  h1{font-size:26px}
+  .card{width:220px;margin:0 10px}
+  .panel-nav{width:38px;height:38px;font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <button class="back" onclick="location.href='../index.html'">← 返回首页</button>
+  <h1>木雕工艺 · 一刀一刻皆匠心</h1>
+</header>
+
+<!-- 1️⃣ 图片轮播：只剩 3 张 -->
+<div class="carousel">
+  <button class="nav prev-pic" id="prevPic" disabled>‹</button>
+  <button class="nav next-pic" id="nextPic">›</button>
+  <div class="pic-track" id="picTrack">
+    <div class="card"><img src="https://img0.baidu.com/it/u=1700892628,3821310399&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500" alt=""><div>东阳木雕·花鸟纹屏风</div></div>
+    <div class="card"><img src="https://img1.baidu.com/it/u=3091072220,1810521103&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500" alt=""><div>黄杨木雕·人物摆件</div></div>
+    <div class="card"><img src="https://img2.baidu.com/it/u=2052100199,307437732&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500" alt=""><div>福建木雕·瑞兽摆件</div></div>
+  </div>
+</div>
+
+<!-- 2️⃣ 文字四板块轮换 -->
+<div class="content-panel">
+  <button class="panel-nav prev-panel" id="prevPanel" disabled>‹</button>
+  <button class="panel-nav next-panel" id="nextPanel">›</button>
+  <div class="panel-viewport">
+    <div class="panel-track" id="panelTrack">
+      <div class="panel-slide"><h3><i class="fas fa-history"></i> 木雕文化</h3><p>历史起源与发展</p><p>四大木雕流派特色</p><p>地域木雕风格差异</p></div>
+      <div class="panel-slide"><h3><i class="fas fa-tools"></i> 制作技艺</h3><p>选材与木料处理</p><p>雕刻技法（圆雕/浮雕）</p><p>打磨与上漆工艺</p></div>
+      <div class="panel-slide"><h3><i class="fas fa-award"></i> 经典作品</h3><p>传统建筑木雕构件</p><p>文房摆件鉴赏</p><p>大师代表作品</p></div>
+      <div class="panel-slide"><h3><i class="fas fa-hand-sparkles"></i> 互动体验</h3><p>虚拟雕刻模拟</p><p>木料识别问答</p><p>DIY 木雕教程</p></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <h3>🌳 木雕工艺的传承与创新</h3>
+  <p>木雕是中国最古老的民间工艺之一，从新石器时代的简单雕琢，到唐宋的鼎盛发展，再到明清的精工细作，木雕始终以其独特的艺术魅力承载着中华民族的审美追求。如今，传统木雕技艺与现代设计、数字化技术结合，让这门古老工艺在当代焕发新活力。</p>
+</footer>
+
+<script>
+/* ---------- 图片轮播 ---------- */
+const picTrack=document.getElementById('picTrack');
+let picIdx=0,picWidth=picTrack.children[0].offsetWidth+30;
+function slidePic(){
+  picTrack.style.transform=`translateX(${-picIdx*picWidth}px)`;
+  document.getElementById('prevPic').disabled=picIdx===0;
+  document.getElementById('nextPic').disabled=picIdx===picTrack.children.length-1;
+}
+document.getElementById('prevPic').onclick=()=>{if(picIdx>0){picIdx--;slidePic()}};
+document.getElementById('nextPic').onclick=()=>{if(picIdx<picTrack.children.length-1){picIdx++;slidePic()}};
+onresize=()=>{picWidth=picTrack.children[0].offsetWidth+30;slidePic()};
+slidePic();
+
+/* ---------- 文字板块轮换 ---------- */
+const panelTrack=document.getElementById('panelTrack');
+let cur=0;
+const total=panelTrack.children.length;
+function goPanel(i){
+  cur=Math.max(0,Math.min(i,total-1));
+  panelTrack.style.transform=`translateX(${-cur*100}%)`;
+  document.getElementById('prevPanel').disabled=cur===0;
+  document.getElementById('nextPanel').disabled=cur===total-1;
+}
+document.getElementById('prevPanel').onclick=()=>goPanel(cur-1);
+document.getElementById('nextPanel').onclick=()=>goPanel(cur+1);
+goPanel(0);
+</script>
+</body>
+</html>
